@@ -5,20 +5,18 @@ import Typography from '@mui/material/Typography';
 import UserBadge from './UserBadge';
 import UserInfo from './UserInfo';
 
-const UserCard = ({name,role}) => {
+const UserCard = ({id ,name,role}) => {
 
   return (
     <>
      <div>User</div>
-    
-     
-  
   <Card  sx={{ minWidth: 275 }}>
         <CardContent>
           
-         <UserInfo name={name} role={role?.toLowerCase()}></UserInfo> 
+         <UserInfo id = {id} name={name} role={role?.toLowerCase()}></UserInfo> 
           
         </CardContent>
+
       </Card>
   </>
   )

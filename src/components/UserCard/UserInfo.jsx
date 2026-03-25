@@ -1,8 +1,9 @@
+import { Typography } from "@mui/material";
 import UserBadge from "./UserBadge";
 
-const UserInfo = ({name,role}) => {
+const UserInfo = ({id,name,role}) => {
     
-  return (<div>My name is {name} ans my Role is <UserBadge role={role}/></div>
+  return (<div>Id : {id} <br/> My name is <Typography variant="body2">{name}</Typography>and my Role is <UserBadge role={role}/></div>
    
        
   )

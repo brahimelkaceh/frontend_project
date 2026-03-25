@@ -1,8 +1,16 @@
+
+
 export default function LoginPage() {
+
+
+  
   return (
-    <div>
+    <div style={{ padding: '60px', maxWidth: '400px', margin: '0 auto' }}>
       <h1>Login</h1>
-      <p>Login form goes here.</p>
+      <p>Click below to sign in as a demo user.</p>
+      <button style={{ padding: '10px 24px', marginTop: '16px' }}>
+        Sign in
+      </button>
     </div>
   )
 }

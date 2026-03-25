@@ -1,25 +1,29 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom'
 
-function Home() {
-  return <h1>Home Page</h1>;
-}
+import HomePage from '../pages/HomePage'
+import LoginPage from '../pages/LoginPage'
+import DashboardPage from '../pages/DashboardPage'
+import UserListPage from '../pages/UserList/UserListPage'
+import UserDetailPage from '../pages/UserDetail/UserDetailPage'
 
-function About() {
-  return <h1>About Page</h1>;
-}
+import AppLayout from '../components/Layout/AppLayout'
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link> | 
-        <Link to="/about">About</Link>
-      </nav>
+const router = createBrowserRouter([
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+  // Public routes — no layout
+  { path: '/', element: <HomePage /> },
+
+  
+  // Pages that use the layout (navbar + sidebar)
+  {
+    element: <AppLayout />,
+    children: [
+      { path: '/dashboard', element: <DashboardPage /> },
+      { path: '/users', element: <UserListPage /> },
+      { path: '/users/:id', element: <UserDetailPage/> },
+    ]
+  }
+
+])
+
+export default router
