@@ -10,10 +10,8 @@ function App() {
   return (
     <>
      
-    <StepWizard/>
+      <StepWizard/>
       <ThemeToggle/>
-
-
       <UserCard name="Sarah" role="Admin" />
 
 
