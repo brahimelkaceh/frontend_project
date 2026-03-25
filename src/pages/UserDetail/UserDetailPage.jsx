@@ -4,13 +4,7 @@ import UserCardDetail from '../../components/UserCard/UserCardDetail'
 import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import Typography  from '@mui/material/Typography';
-
-const USERS = [
-  { id: 1, name: 'Sarah Johnson', role: 'Admin' },
-  { id: 2, name: 'John Smith', role: 'User' },
-  { id: 3, name: 'Lisa Chen', role: 'Viewer' },
-]
-
+import USERS from '../../data/users';
 
 const UserDetailPage = () => {
 const { id } = useParams()
