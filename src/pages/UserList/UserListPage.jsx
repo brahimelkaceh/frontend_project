@@ -4,6 +4,13 @@ import Stack from '@mui/material/Stack';
 import UserCard from '../../components/UserCard/UserCard';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom'
+// import { useUsers } from '../../hooks/useUsers'
+
+// TODO: remove this hardcoded array
+// TODO: replace with: const { data: users, isLoading, isError, error } = useUsers()
+// TODO: handle isLoading — show MUI CircularProgress
+// TODO: handle isError — show MUI Alert with error.message
+// TODO: handle empty — show Typography "No users found."
 import USERS from '../../data/users'
 
 const UserListPage = () => {
@@ -20,9 +27,7 @@ const UserListPage = () => {
         <Button onClick={() => navigate(`/users/${user.id}`)}>View</Button>
             </Stack>
       ))}
-
   </>
-   
   )
 }
 
