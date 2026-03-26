@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-export default function UserCardDetail({name,role,id}) {
+export default function UserCardDetail({name,role,id,company,phone}) {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -18,6 +18,12 @@ export default function UserCardDetail({name,role,id}) {
         </Typography>
         <Typography variant="body1" >
     Id : {id}
+        </Typography>
+            <Typography variant="body1" >
+    company :{company}
+        </Typography>
+        <Typography variant="body1" >
+    phone : {phone}
         </Typography>
         
       </CardContent>

@@ -3,33 +3,17 @@
 
 import api from '../lib/axios'
 
-/**
- * Fetches all users from the API (JSONPlaceholder: GET /users).
- * Should return the response data (array of users).
- */
-export async function getUsers() {}
+// Get all users
+export const getUsers = () => api.get('/users').then(res => res.data)
 
-/**
- * Fetches a single user by id (GET /users/:id).
- * @param {string|number} id - User id from the route or UI.
- */
-export async function getUserById(id) {}
+// Get a single user by ID
+export const getUserById = (id) => api.get(`/users/${id}`).then(res => res.data)
 
-/**
- * Creates a new user (POST /users).
- * @param {object} data - Payload matching the API (e.g. name, username, email).
- */
-export async function createUser(data) {}
+// Create a new user
+export const createUser = (data) => api.post('/users', data).then(res => res.data)
 
-/**
- * Updates an existing user (PATCH or PUT /users/:id).
- * @param {string|number} id - User id.
- * @param {object} data - Fields to update.
- */
-export async function updateUser(id, data) {}
+// Update an existing user
+export const updateUser = (id, data) => api.put(`/users/${id}`, data).then(res => res.data)
 
-/**
- * Deletes a user (DELETE /users/:id).
- * @param {string|number} id - User id.
- */
-export async function deleteUser(id) {}
+// Delete a user
+export const deleteUser = (id) => api.delete(`/users/${id}`).then(res => res.data)

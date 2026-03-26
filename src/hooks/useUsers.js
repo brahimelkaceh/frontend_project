@@ -7,6 +7,13 @@ import { getUsers } from '../services/userService'
  * When you implement this hook, destructure from the return value, e.g.:
  * data, isLoading, isError, error, isFetching, refetch, status, etc.
  */
-export function useUsers() {
+
   // TODO: use useQuery to fetch all users
+  export const useUsers = () => {
+  return useQuery({
+    queryKey: ['users'],
+    queryFn: getUsers,
+    
+  })
 }
+
