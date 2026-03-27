@@ -1,7 +1,16 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import SideBar from './SideBar'
+import { toggleSidebar } from '../../store/uiSlice'
+import { useAppSelector, useAppDispatch } from '../../store/hooks' 
 export default function AppLayout() {
-  return (
+
+  const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen)
+const dispatch = useAppDispatch()
+
+return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
 
       {/* Navbar — sits at the top */}
@@ -20,17 +29,10 @@ export default function AppLayout() {
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
 
         {/* Sidebar */}
-        <aside style={{
-          width: '200px',
-          background: '#f4f4f5',
-          padding: '24px 16px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px'
-        }}>
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/users">Users</Link>
-        </aside>
+        <IconButton onClick={() => dispatch(toggleSidebar())}>
+        <MenuIcon />
+        </IconButton>
+       {sidebarOpen && <SideBar />}
 
         {/* Main content — this is where Outlet renders your page */}
         <main style={{ flex: 1, padding: '32px', overflowY: 'auto' }}>
