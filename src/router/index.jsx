@@ -8,6 +8,7 @@ import UserDetailPage from '../pages/UserDetail/UserDetailPage'
 import AppLayout from '../components/Layout/AppLayout'
 import StepWizard from '../components/StepWizard/StepWizard'
 import ProtectedRoute from '../components/auth/ProtectedRoute'
+import ThemeToggle from '../components/ThemeToggle/ThemeToggle'
 const router = createBrowserRouter([
 
   // Public routes — no layout
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: '/dashboard', element: <DashboardPage /> },
       { path: '/users', element: <UserListPage /> },
       { path: '/users/:id', element: <UserDetailPage/> },
+       { path: '/themetoogle', element: <ThemeToggle/> },
     ]
   }]
 }

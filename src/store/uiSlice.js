@@ -22,3 +22,37 @@ import { createSlice } from '@reduxjs/toolkit'
 // TODO: export actions here
 
 // TODO: export reducer as default here
+
+const initialState = {
+  sidebarOpen: false,
+  theme: 'light',
+  notificationsOpen: false,
+}
+
+const uiSlice = createSlice({
+  name: 'ui',
+  initialState,
+  reducers: {
+    toggleSidebar: (state) => {
+      state.sidebarOpen = !state.sidebarOpen
+    },
+
+    setTheme: (state, action) => {
+      state.theme = action.payload
+    },
+    toggleNotifications: (state) => {
+      state.notificationsOpen = !state.notificationsOpen
+    },
+  },
+})
+
+
+export const {toggleSidebar,setTheme,toggleNotifications} = uiSlice.actions
+export default uiSlice.reducer
+
+
+//Scenario A: The list of users fetched from GET /users --> Use React Query because it handles server data well, like caching, loading, and updating automatically
+//Scenario B: Whether the confirmation dialog is open or closed --> Use useState because it's simple local UI state. No need for Redux or React Query
+//Scenario C: The currently logged-in user's name and role -->  Use Redux because many parts of the app need this global user info
+//Scenario D: The search term typed in a filter input --> Use useState because it's temporary, local state inside the component
+//Scenario E: The list of notifications fetched from GET /notifications --> Use React Query because it's server data that changes often and needs caching and updates. 
