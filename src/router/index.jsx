@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       { path: '/users/:id', element: <UserDetailPage/> },
       { path: '/themetoogle', element: <ThemeToggle/> },
       { path: '/loginform', element: <LoginForm/> },
-      { path: '/createuser', element: <CreateUserPage/> },
+      { path: '/users/create', element: <CreateUserPage/> },
     ]
   }]
 }

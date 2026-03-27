@@ -43,7 +43,7 @@ if (!users?.length) return (
     <Typography variant="h4">
       Users
     </Typography>
-   <Button onClick={() => navigate(`/createuser`)}>+Create User</Button>
+   <Button onClick={() => navigate(`/users/create`)}>+Create User</Button>
       {users.map((user) => (
          <Stack key={user.id}  spacing={2}>
         <UserCard id={user.id} name={user.name} role={user.role} />

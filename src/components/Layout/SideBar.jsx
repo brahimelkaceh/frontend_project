@@ -15,7 +15,7 @@ const SideBar = () => {
           <Link to="/themetoogle">ThemeToogle</Link>
           <Link to="/wizard">Step Wizard</Link>
             <Link to="/loginform">Loging Form</Link>
-             <Link to="/createuser">Create User</Link>
+             <Link to="/users/create">Create User</Link>
         </aside>
   )
 }
