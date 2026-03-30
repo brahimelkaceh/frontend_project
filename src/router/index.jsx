@@ -29,6 +29,7 @@ const router = createBrowserRouter([
       { path: '/users/:id', element: <UserDetailPage/> },
       { path: '/themetoogle', element: <ThemeToggle/> },
       
+      
     ]
   }]
 }
