@@ -27,7 +27,8 @@ const router = createBrowserRouter([
       { path: '/dashboard', element: <DashboardPage /> },
       { path: '/users', element: <UserListPage /> },
       { path: '/users/:id', element: <UserDetailPage/> },
-       { path: '/themetoogle', element: <ThemeToggle/> },
+      { path: '/themetoogle', element: <ThemeToggle/> },
+      
     ]
   }]
 }
