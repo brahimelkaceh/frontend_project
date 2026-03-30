@@ -14,6 +14,7 @@ const SideBar = () => {
           <Link to="/users">Users</Link>
           <Link to="/themetoogle">ThemeToogle</Link>
           <Link to="/wizard">Step Wizard</Link>
+          <Link to="/team-directory">Team Directory</Link>
         </aside>
   )
 }

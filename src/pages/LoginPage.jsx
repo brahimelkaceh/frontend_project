@@ -2,10 +2,12 @@
 import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
+
 import { Box, TextField, Button, Grid, Typography } from '@mui/material';
 import api from '../lib/axios'
 
 export default function LoginPage() {
+ 
   const { login } = useAuth()
   const navigate = useNavigate()
 
@@ -31,7 +33,7 @@ async function handleLogin() {
         password
       })
 
-      login(response.data) // or response.data.access
+      login(response.data.access) // or response.data.access
       navigate('/dashboard')
     } catch (error) {
       console.error(error)

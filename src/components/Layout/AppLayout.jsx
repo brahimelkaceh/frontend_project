@@ -1,11 +1,22 @@
 import { Outlet } from 'react-router-dom'
-
+import { Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SideBar from './SideBar'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import { toggleSidebar } from '../../store/uiSlice'
 import { useAppSelector, useAppDispatch } from '../../store/hooks' 
 export default function AppLayout() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();           // clear token
+    navigate('/login'); // redirect to login page
+  };
+
+
 
   const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen)
 const dispatch = useAppDispatch()
@@ -23,6 +34,7 @@ return (
         alignItems: 'center'
       }}>
         <span style={{ fontWeight: 'bold', fontSize: '18px' }}>MyApp</span>
+          <button onClick={handleLogout}>Logout</button>
       </nav>
 
       {/* Below navbar: sidebar + main content side by side */}

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getLocations } from '../services/locationService'
+import { getLocations } from '../services/teamDirectoryServices'
 
 export const useLocations = (params = {}) =>
   useQuery({
