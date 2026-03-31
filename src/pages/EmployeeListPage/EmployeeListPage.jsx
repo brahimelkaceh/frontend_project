@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { useNavigate } from 'react-router-dom'
+import { useAppSelector } from '../../store/hooks'
 import {
   Box,
   Typography,
@@ -23,6 +24,9 @@ import { useEmployees } from '../../hooks/useEmployees'
 import { useLocations } from '../../hooks/useLocations' // your custom hook
 
 export default function EmployeeListPage() {
+const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen)
+
+
   const navigate = useNavigate()
   const [searchInput, setSearchInput] = useState('')
   const [locationFilter, setLocationFilter] = useState('')
@@ -149,7 +153,7 @@ export default function EmployeeListPage() {
                 </Grid>
               ))
             : data?.results?.map((employee) => (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={employee.id}>
+                <Grid item xs={12} sm={6} md={sidebarOpen ? 4 : 3} lg={sidebarOpen ? 3 : 2} key={employee.id}>
                   <EmployeeCard
                     employee={employee}
                     onClick={() => navigate(`/team-directory/${employee.id}`)}

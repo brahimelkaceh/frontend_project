@@ -15,7 +15,7 @@ const EmployeeDetailPage = () => {
 
 const { id } = useParams()
 const navigate = useNavigate()
-const { data: employee, isLoading, isError } = useEmployee(id)
+const { data: employee, isLoading, isError,refetch } = useEmployee(id)
 
 
 
@@ -30,14 +30,53 @@ const { data: employee, isLoading, isError } = useEmployee(id)
 </Button>
 
   {/* Avatar overlapping the banner */}
-  {isError ? ( <Box textAlign="center" py={8}>
+  {isError ? (
+        <Box textAlign="center" py={8}>
           <Typography color="error" gutterBottom>
-            Failed to load employees.
+            Failed to load employee.
           </Typography>
-        
+          <Button variant="outlined" onClick={() => refetch()}>
+            Try again
+          </Button>
         </Box>
-    ):
-    (
+      ) :    
+      
+isLoading ? (
+  <>
+  <Box>
+    <Skeleton variant="rounded" height={100} sx={{ borderRadius: 3, mb: 2 }} />
+    <Box display="flex" flexDirection="column" alignItems="center" gap={1} mb={3}>
+      <Skeleton variant="circular" width={96} height={96} />
+      <Skeleton variant="text" width={200} height={32} />
+      <Skeleton variant="text" width={140} height={24} />
+    </Box>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={5}>
+        <Skeleton variant="rounded" height={180} sx={{ borderRadius: 3 }} />
+      </Grid>
+      <Grid item xs={12} md={7}>
+        <Skeleton variant="rounded" height={180} sx={{ borderRadius: 3 }} />
+      </Grid>
+    </Grid>
+    
+  </Box>
+    <Grid container spacing={3} mt={1}>
+      {Array.from({ length: 8 }).map((_, i) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+          <Card sx={{ borderRadius: 3, p: 3, height: 240 }}>
+            <Box display="flex" flexDirection="column" alignItems="center" gap={1.5}>
+              <Skeleton variant="circular" width={72} height={72} />
+              <Skeleton variant="text" width="60%" height={24} />
+              <Skeleton variant="text" width="80%" height={20} />
+              <Skeleton variant="text" width="40%" height={18} />
+            </Box>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+    </>
+  
+):(<>
 <Card
   sx={{
     borderRadius: 4,
@@ -102,7 +141,6 @@ const { data: employee, isLoading, isError } = useEmployee(id)
     )}
   </Box>
 </Card>
-    )}
 <Grid container spacing={3}>
   <Grid item xs={12} md={5}>
     <Card sx={{ borderRadius: 3, boxShadow: 'none', border: '1px solid', borderColor: 'divider', p: 3 }}>
@@ -144,25 +182,13 @@ const { data: employee, isLoading, isError } = useEmployee(id)
     </Card>
   </Grid>
 </Grid>
+</>
+
+
+
+    )}
+
     
-{isLoading && (
-  <Box>
-    <Skeleton variant="rounded" height={100} sx={{ borderRadius: 3, mb: 2 }} />
-    <Box display="flex" flexDirection="column" alignItems="center" gap={1} mb={3}>
-      <Skeleton variant="circular" width={96} height={96} />
-      <Skeleton variant="text" width={200} height={32} />
-      <Skeleton variant="text" width={140} height={24} />
-    </Box>
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={5}>
-        <Skeleton variant="rounded" height={180} sx={{ borderRadius: 3 }} />
-      </Grid>
-      <Grid item xs={12} md={7}>
-        <Skeleton variant="rounded" height={180} sx={{ borderRadius: 3 }} />
-      </Grid>
-    </Grid>
-  </Box>
-)}
     </Box>
     
   )
