@@ -10,12 +10,13 @@ import StepWizard from '../components/StepWizard/StepWizard'
 import ProtectedRoute from '../components/auth/ProtectedRoute'
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle'
 import EmployeeListPage from '../pages/EmployeeListPage/EmployeeListPage'
+import EmployeeDetailPage from '../pages/EmployeeDetailPage/EmployeeDetailPage'
 const router = createBrowserRouter([
 
   // Public routes — no layout
-  { path: '/', element: <HomePage /> },
+  
 
-  { path: '/login', element: <LoginPage/> },
+  { path: '/', element: <LoginPage/> },
   // Pages that use the layout (navbar + sidebar)
   {
     element: <ProtectedRoute />,
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
       { path: '/users', element: <UserListPage /> },
       { path: '/users/:id', element: <UserDetailPage/> },
       { path: '/themetoogle', element: <ThemeToggle/> },
-        { path: '/team-directory', element: <EmployeeListPage/> },
+      { path: '/team-directory', element: <EmployeeListPage/> },
+      { path: '/team-directory/:id' , element: <EmployeeDetailPage/> },
       
     ]
   }]

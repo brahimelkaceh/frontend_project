@@ -18,13 +18,13 @@ const [password , setPassword] = useState('')
 async function handleLogin() {
  const newErrors = {}
 
-    // simple validation
+   
     if (!username) newErrors.username = 'Username is required'
     if (!password) newErrors.password = 'Password is required'
 
     setErrors(newErrors)
 
-    // if there are errors, stop here
+  
     if (Object.keys(newErrors).length > 0) return
 
     try {
