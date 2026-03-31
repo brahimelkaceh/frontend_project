@@ -13,7 +13,7 @@ export default function AppLayout() {
 
   const handleLogout = () => {
     logout();           // clear token
-    navigate('/login'); // redirect to login page
+    navigate('/'); // redirect to login page
   };
 
 

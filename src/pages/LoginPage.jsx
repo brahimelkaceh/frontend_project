@@ -33,7 +33,7 @@ async function handleLogin() {
         password
       })
 
-      login(response.data.access) // or response.data.access
+      login(response.data.access) 
       navigate('/dashboard')
     } catch (error) {
       console.error(error)
@@ -46,12 +46,12 @@ async function handleLogin() {
        <Box
       sx={{
         maxWidth: 400,
-        mx: 'auto',      // center horizontally
-        mt: 8,           // margin top
-        p: 3,            // padding inside the box
+        mx: 'auto',      
+        mt: 8,           
+        p: 3,            
         display: 'flex',
         flexDirection: 'column',
-        gap: 2,    // space between items
+        gap: 2,    
         boxShadow: 3,
         borderRadius: 2,
         bgcolor: 'background.paper',
