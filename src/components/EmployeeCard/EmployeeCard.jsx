@@ -1,11 +1,10 @@
 import { Avatar, Box, Card, CardActionArea, Chip, Typography } from '@mui/material'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
-
 const EmployeeCard = ({ employee, onClick }) => {
-  const firstName = employee.user?.first_name ?? ''
-  const lastName = employee.user?.last_name ?? ''
-  const initials = `${firstName[0] ?? ''}${lastName[0] ?? ''}`.toUpperCase()
-  const fullName = `${firstName} ${lastName}`.trim() || 'Unknown'
+  const fullname = employee.fullname ?? ''
+  //const lastName = employee.user?.last_name ?? ''
+  const initials = `${fullname[0] ?? ''}`.toUpperCase()
+  const fullName = `${fullname}`.trim() || 'Unknown'
 
   return (
     <Card
@@ -30,7 +29,8 @@ const EmployeeCard = ({ employee, onClick }) => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          p: 3,
+          p:2,
+           
         }}
       >
         {/* Avatar */}
@@ -77,6 +77,7 @@ const EmployeeCard = ({ employee, onClick }) => {
             </Typography>
           </Box>
         )}
+
       </CardActionArea>
     </Card>
   )

@@ -46,9 +46,7 @@ const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen)
     <Box>
       {/* Page Header */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" fontWeight={700} gutterBottom>
-          Team Directory
-        </Typography>
+     
         <Typography variant="body1" color="text.secondary">
           {data?.count ?? 0} people · find anyone in the team
         </Typography>

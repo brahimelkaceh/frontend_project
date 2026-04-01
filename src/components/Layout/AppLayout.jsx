@@ -1,56 +1,121 @@
-import { Outlet } from 'react-router-dom'
-import IconButton from '@mui/material/IconButton';
+import { Outlet } from 'react-router-dom';
+import {
+  Box, AppBar, Toolbar, Typography, IconButton,
+  Tooltip, Avatar, Slide
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SideBar from './SideBar'
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import SideBar from './SideBar';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { toggleSidebar } from '../../store/uiSlice'
-import { useAppSelector, useAppDispatch } from '../../store/hooks' 
+import { toggleSidebar } from '../../store/uiSlice';
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import AutoBreadcrumb from '../AutoBreadCrumb/AutoBreadCrumb';
+
+const SIDEBAR_WIDTH = 220;
+
 export default function AppLayout() {
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen);
+  const dispatch = useAppDispatch();
 
   const handleLogout = () => {
-    logout();           // clear token
-    navigate('/'); // redirect to login page
+    logout();
+    navigate('/');
   };
 
+  return (
+  <Box sx={{ display: 'flex', height: '100vh' }}>
 
+    {/* ── Sidebar (full height, left) ── */}
+    <Box
+      sx={{
+        width: sidebarOpen ? SIDEBAR_WIDTH : 0,
+        flexShrink: 0,
+        overflow: 'hidden',
+        transition: 'width 0.22s cubic-bezier(0.4,0,0.2,1)',
+      }}
+    >
+      <Slide direction="right" in={sidebarOpen} mountOnEnter unmountOnExit>
+        <Box sx={{ width: SIDEBAR_WIDTH, height: '100%' }}>
+          <SideBar />
+        </Box>
+      </Slide>
+    </Box>
 
-  const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen)
-const dispatch = useAppDispatch()
+    {/* ── Right column: Navbar + Content ── */}
+    <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
 
-return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      {/* Navbar */}
+      <AppBar
+        position="static"
+        elevation={0}
+        sx={{
+          bgcolor: 'background.paper',
+          borderBottom: '1px solid',
+          borderColor: 'divider',
+        }}
+      >
+        <Toolbar sx={{ px: 2, minHeight: '64px !important', gap: 2 }}>
+          <IconButton
+            onClick={() => dispatch(toggleSidebar())}
+            size="small"
+            sx={{ color: 'text.secondary' }}
+          >
+            <MenuIcon fontSize="small" />
+          </IconButton>
 
-      {/* Navbar — sits at the top */}
-      <nav style={{
-        background: '#1e1e2e',
-        color: 'white',
-        padding: '0 24px',
-        height: '56px',
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <span style={{ fontWeight: 'bold', fontSize: '18px' }}>MyApp</span>
-          <button onClick={handleLogout}>Logout</button>
-      </nav>
+        
 
-      {/* Below navbar: sidebar + main content side by side */}
-      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+          <Box sx={{ flex: 1 }} />
 
-        {/* Sidebar */}
-        <IconButton onClick={() => dispatch(toggleSidebar())}>
-        <MenuIcon />
-        </IconButton>
-       {sidebarOpen && <SideBar />}
+          <Tooltip title="Logout">
+            <IconButton
+              onClick={handleLogout}
+              size="small"
+              sx={{ color: 'text.secondary', '&:hover': { color: 'error.main' } }}
+            >
+              <LogoutOutlinedIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
 
-        {/* Main content — this is where Outlet renders your page */}
-        <main style={{ flex: 1, padding: '32px', overflowY: 'auto' }}>
-          <Outlet />
-        </main>
+          <Avatar sx={{ width: 30, height: 30, bgcolor: 'primary.main', fontSize: 12, ml: 0.5 }}>
+            JD
+          </Avatar>
+        </Toolbar>
+      </AppBar>
 
-      </div>
-    </div>
-  )
+      {/* Main content */}   {/* ← once here, works on every page */}
+<Box
+  component="main"
+  sx={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    minHeight: '0vh',
+    
+    overflowY: 'auto',
+    bgcolor: 'background.default',
+  }}
+>
+  <Box
+    sx={{
+      p:5,
+      width: '100%',
+         maxWidth: { xs: '70%', sm: '300px', md: '500px', lg: '780px', xl: '900px' }, // or whatever max width you want
+      mx: 'auto',          // this is what horizontally centers it
+      flexGrow: 1,         // grows with the page vertically
+    }}
+  >
+    <AutoBreadcrumb/>
+    
+    <Outlet />
+  </Box>
+</Box>
+
+    </Box>
+  </Box>
+);
 }

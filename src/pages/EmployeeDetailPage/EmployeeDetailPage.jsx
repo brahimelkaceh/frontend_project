@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useEmployee } from '../../hooks/useEmployee'
 import { Box,Button,Typography,Skeleton,Grid } from '@mui/material'
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -11,26 +12,23 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import BusinessIcon from '@mui/icons-material/Business';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+
 const EmployeeDetailPage = () => {
 
-const { id } = useParams()
-const navigate = useNavigate()
-const { data: employee, isLoading, isError,refetch } = useEmployee(id)
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const { data: employee, isLoading, isError,refetch } = useEmployee(id)
 
 
 
-  return (
-    <Box>
-    <Button
-  startIcon={<ArrowBackIcon />}
-  onClick={() => navigate('/team-directory')}
-  sx={{ mb: 3, color: 'text.secondary' }}
->
-  Back to Directory
-</Button>
+return (
+    <>
+      <Box>
+        <Button startIcon={<ArrowBackIcon />}  onClick={() => navigate('/team-directory')}  sx={{ mb: 3, color: 'text.secondary' }}>Back to Directory</Button>
 
-  {/* Avatar overlapping the banner */}
-  {isError ? (
+     {/* Avatar overlapping the banner */}
+     {isError ? (
         <Box textAlign="center" py={8}>
           <Typography color="error" gutterBottom>
             Failed to load employee.
@@ -39,17 +37,16 @@ const { data: employee, isLoading, isError,refetch } = useEmployee(id)
             Try again
           </Button>
         </Box>
-      ) :    
-      
-isLoading ? (
-  <>
-  <Box>
-    <Skeleton variant="rounded" height={100} sx={{ borderRadius: 3, mb: 2 }} />
-    <Box display="flex" flexDirection="column" alignItems="center" gap={1} mb={3}>
-      <Skeleton variant="circular" width={96} height={96} />
-      <Skeleton variant="text" width={200} height={32} />
-      <Skeleton variant="text" width={140} height={24} />
-    </Box>
+      ) :
+         isLoading ? (
+         <>
+           <Box>
+            <Skeleton variant="rounded" height={100} sx={{ borderRadius: 3, mb: 2 }} />
+            <Box display="flex" flexDirection="column" alignItems="center" gap={1} mb={3}>
+            <Skeleton variant="circular" width={96} height={96} />
+            <Skeleton variant="text" width={200} height={32} />
+             <Skeleton variant="text" width={140} height={24} />
+           </Box>
     <Grid container spacing={3}>
       <Grid item xs={12} md={5}>
         <Skeleton variant="rounded" height={180} sx={{ borderRadius: 3 }} />
@@ -182,6 +179,7 @@ isLoading ? (
     </Card>
   </Grid>
 </Grid>
+
 </>
 
 
@@ -190,7 +188,13 @@ isLoading ? (
 
     
     </Box>
-    
+      <Button variant="outlined"   onClick={() => navigate(`/team-directory/delete/${employee.id}`)} startIcon={<DeleteIcon />}>
+  Delete
+</Button>
+<Button variant="contained" onClick={() => navigate(`/team-directory/edit/${employee.id}`)}  endIcon={<EditIcon />}>
+  Edit
+</Button>
+    </>
   )
 }
 
