@@ -26,11 +26,11 @@ const navGroups = [
        { label: 'Employees', to: '/team-directory', icon: <PeopleOutlinedIcon fontSize="small" /> },
        { label: 'Add Employee', to: '/team-directory/create', icon: <PersonAddAltIcon fontSize="small" /> },
 
-        { label: 'Departments', to: '/', icon: <DomainIcon fontSize="small" /> },
-        { label: 'Add Departments', to: '/', icon: <DomainAddIcon fontSize="small" /> },
+        { label: 'Departments', to: '/departments', icon: <DomainIcon fontSize="small" /> },
+        { label: 'Add Departments', to: '/departments/create', icon: <DomainAddIcon fontSize="small" /> },
  
-        { label: 'Locations', to: '/', icon: <LocationOnIcon fontSize="small" /> },
-        { label: 'Add Location', to: '/', icon: <AddLocationAltIcon fontSize="small" /> },
+        { label: 'Locations', to: '/locations', icon: <LocationOnIcon fontSize="small" /> },
+        { label: 'Add Location', to: '/locations/create', icon: <AddLocationAltIcon fontSize="small" /> },
  
      // { label: 'Theme Toggle', to: '/themetoogle', icon: <LightModeOutlinedIcon fontSize="small" /> },
     ],

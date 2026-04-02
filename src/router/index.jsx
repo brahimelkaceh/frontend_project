@@ -16,6 +16,11 @@ import EmployeeDetailPageLS from '../pages/EmployeeDetailPage/EmployeeDetailPage
 import EmployeeListPageLS from '../pages/EmployeeListPage/EmployeeListPageLS'
 import EmployeeCreatePage from '../pages/EmployeeCrud/EmployeeCreatePage'
 import EmployeeEditPage from '../pages/EmployeeCrud/EmployeeEditPage'
+import DepartmentCreate from '../pages/DepartmentsCrud/DepartmentCreate'
+import DepartmentsListPage from '../pages/Departments/DepartmentList'
+import DepartmentEdit from '../pages/DepartmentsCrud/DepratmentsEdit'
+import Loactions from '../pages/Locations/Loactions'
+import LocationCrud from '../pages/LocationCrud/LocationCrud'
 const router = createBrowserRouter([
 
   // Public routes — no layout
@@ -30,18 +35,23 @@ const router = createBrowserRouter([
     
     element: <AppLayout />,
     children: [
-      { path: '/wizard', element: <StepWizard /> },
-      { path: '/dashboard', element: <DashboardPage /> },
-      { path: '/users', element: <EmployeeListPageLS /> },
-      { path: '/users/:id', element: <EmployeeListPageLS/> },
-      { path: '/themetoogle', element: <ThemeToggle/> },
-      //{ path: '/team-directory', element: <EmployeeListPage/> },
-     // { path: '/team-directory/:id' , element: <EmployeeDetailPage/> },
-       { path: '/team-directory/:id' , element: <EmployeeDetailPageLS/> },
-      { path: '/team-directory/create' , element: <EmployeeCreatePage/> },
-      { path: '/team-directory/edit/:id' , element: <EmployeeEditPage/> },
-        { path: '/team-directory' , element: <EmployeeListPageLS/> },
-    ]
+         { path: '/wizard', element: <StepWizard /> },
+         { path: '/dashboard', element: <DashboardPage /> },
+         { path: '/users', element: <EmployeeListPageLS /> },
+         { path: '/users/:id', element: <EmployeeListPageLS/> },
+         { path: '/themetoogle', element: <ThemeToggle/> },
+       //{ path: '/team-directory', element: <EmployeeListPage/> },
+      // { path: '/team-directory/:id' , element: <EmployeeDetailPage/> },
+         { path: '/team-directory/:id' , element: <EmployeeDetailPageLS/> },
+         { path: '/team-directory/create' , element: <EmployeeCreatePage/> },
+         { path: '/team-directory/edit/:id' , element: <EmployeeEditPage/> },
+         { path: '/team-directory' , element: <EmployeeListPageLS/> },
+         { path: '/departments' , element: <DepartmentsListPage/> },
+         { path: '/departments/create' , element: <DepartmentCreate/> },   
+         { path: '/departments/edit/:id' , element: <DepartmentEdit/> },
+         { path: '/locations' , element: <Loactions/> },   
+         { path: '/locations/create' , element: <LocationCrud/> },
+        ]
   }]
 }
   
