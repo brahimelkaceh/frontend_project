@@ -21,6 +21,7 @@ import DepartmentsListPage from '../pages/Departments/DepartmentList'
 import DepartmentEdit from '../pages/DepartmentsCrud/DepratmentsEdit'
 import Loactions from '../pages/Locations/Loactions'
 import LocationCrud from '../pages/LocationCrud/LocationCrud'
+import InterventionPage from '../pages/Intrevention/InterventionPage'
 const router = createBrowserRouter([
 
   // Public routes — no layout
@@ -51,6 +52,8 @@ const router = createBrowserRouter([
          { path: '/departments/edit/:id' , element: <DepartmentEdit/> },
          { path: '/locations' , element: <Loactions/> },   
          { path: '/locations/create' , element: <LocationCrud/> },
+         { path: '/intervention' , element: <InterventionPage/> },
+
         ]
   }]
 }

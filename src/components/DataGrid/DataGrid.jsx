@@ -12,7 +12,15 @@ const AppDataGrid = ({ rows = [], columns = [], isLoading = false }) => {
         initialState={{ pagination: { paginationModel: { page: 0, pageSize: 10 } } }}
         pageSizeOptions={[5, 10, 25]}
         disableRowSelectionOnClick
-        sx={{ border: 0, borderRadius: 3 }}
+        sx={{
+          border: 0,
+          borderRadius: 3,
+          // ✅ this forces all cells to center vertically
+          '& .MuiDataGrid-cell': {
+            display: 'flex',
+            alignItems: 'center',
+          },
+        }}
       />
     </Paper>
   )

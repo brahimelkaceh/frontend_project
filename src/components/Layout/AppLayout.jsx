@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import {
-  Box, AppBar, Toolbar, Typography, IconButton,
+  Box, AppBar, Toolbar, IconButton,
   Tooltip, Avatar, Slide
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -90,23 +90,24 @@ export default function AppLayout() {
 <Box
   component="main"
   sx={{
-    flex: 1,
-    display: 'flex',
+    m:0,
+    flex:1,
+    display:'flex',
     flexDirection: 'column',
     width: '100%',
     minHeight: '0vh',
-    
     overflowY: 'auto',
-    bgcolor: 'background.default',
+    bgcolor: '#f5fdff',
   }}
 >
+
   <Box
     sx={{
       p:5,
       width: '100%',
-         maxWidth: { xs: '70%', sm: '300px', md: '500px', lg: '780px', xl: '900px' }, // or whatever max width you want
-      mx: 'auto',          // this is what horizontally centers it
-      flexGrow: 1,         // grows with the page vertically
+      maxWidth: { xs: '100%', sm: '600px', md: '800px', lg: '1150px', xl: '1500px' }, 
+      mx: 'auto',       
+      flexGrow: 1,        
     }}
   >
     <AutoBreadcrumb/>
