@@ -15,7 +15,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import { Link, useLocation } from 'react-router-dom';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-
+import ScienceIcon from '@mui/icons-material/Science';
 const SIDEBAR_WIDTH = 220;
 
 const navGroups = [
@@ -31,7 +31,7 @@ const navGroups = [
  
         { label: 'Locations', to: '/locations', icon: <LocationOnIcon fontSize="small" /> },
         { label: 'Add Location', to: '/locations/create', icon: <AddLocationAltIcon fontSize="small" /> },
- 
+ { label: 'Intervention', to: '/intervention', icon: <ScienceIcon fontSize="small" /> },
      // { label: 'Theme Toggle', to: '/themetoogle', icon: <LightModeOutlinedIcon fontSize="small" /> },
     ],
   },
