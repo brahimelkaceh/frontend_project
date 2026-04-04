@@ -10,10 +10,7 @@ import PauseIcon from '@mui/icons-material/Pause';
 const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
 
 
-    const disabledSx = {
-    opacity: is_done ? 0.35 : 1,
-    pointerEvents: is_done ? 'none' : 'auto',
-  }
+  
 
 
   return (
@@ -21,9 +18,9 @@ const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
 
       {/* status button — changes based on state */}
       {is_done ? (
-        <Tooltip title="Terminé">
+        <Tooltip  title="Terminé">
           <span>
-            <IconButton sx={{ bgcolor: '#e8f5e9', color: '#2e7d32', borderRadius: '6px' }} size="small">
+            <IconButton sx={{opacity: 0.35, cursor: 'not-allowed', bgcolor: '#e8f5e9', color: '#2e7d32', borderRadius: '6px' }} size="small">
               <CheckCircleIcon fontSize="small" />
             </IconButton>
           </span>
@@ -47,28 +44,28 @@ const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
       )}
 
       {/* static buttons — just disabled when done */}
-      <Tooltip title={is_done ? '' : 'Modifier'}>
-        <span>
-          <IconButton disabled={is_done} sx={{ bgcolor: '#fff9c1', color: '#ffcf33', borderRadius: '6px', ...disabledSx }} size="small">
+      <Tooltip title={'Modifier'}>
+       
+          <IconButton sx={{ bgcolor: '#fff9c1', color: '#ffcf33', borderRadius: '6px',  }} size="small">
             <EditIcon fontSize="small" />
           </IconButton>
-        </span>
+       
       </Tooltip>
 
-      <Tooltip title={is_done ? '' : 'Supprimer'}>
-        <span>
-          <IconButton disabled={is_done} sx={{ bgcolor: '#ffe5e5', color: '#ff2d2d', borderRadius: '6px', ...disabledSx }} size="small">
+      <Tooltip title={'Supprimer'}>
+       
+          <IconButton sx={{ bgcolor: '#ffe5e5', color: '#ff2d2d', borderRadius: '6px',  }} size="small">
             <DeleteIcon fontSize="small" />
           </IconButton>
-        </span>
+       
       </Tooltip>
 
-      <Tooltip title={is_done ? '' : 'Détail'}>
-        <span>
-          <IconButton disabled={is_done} sx={{ bgcolor: '#d8f4ff', color: '#4fd6ff', borderRadius: '6px', ...disabledSx }} size="small">
+      <Tooltip title={'Détail'}>
+       
+          <IconButton sx={{ bgcolor: '#d8f4ff', color: '#4fd6ff', borderRadius: '6px',  }} size="small">
             <ArrowForwardIcon fontSize="small" />
           </IconButton>
-        </span>
+       
       </Tooltip>
 
     </Box>
