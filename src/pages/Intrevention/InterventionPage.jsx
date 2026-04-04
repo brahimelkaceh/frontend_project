@@ -6,7 +6,7 @@ import { tabs, tabSec } from '../../data/interventions'
 import data from '../../data/interventions-mock-data.json'
 import InterventionFilters from '../../components/InterventionFeat/Interventionfilters'
 import InterventionTable from '../../components/InterventionFeat/InterventionTable'
-
+import InterventionDetail from '../../components/InterventionFeat/InterventionDetail'
 const secKeyMap = {
   occasionnelle: 'is_occasional',
   reguliere:     'is_regular',
@@ -50,7 +50,7 @@ const InterventionPage = () => {
   // ─── render ───────────────────────────────────────────
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-
+<InterventionDetail/>
       <InterventionFilters
         lot={lot}
         site={site}
