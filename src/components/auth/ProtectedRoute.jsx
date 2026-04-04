@@ -2,10 +2,10 @@ import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 
 export default function ProtectedRoute() {
-  const { user } = useAuth()
+  const { token } = useAuth()
 
-  if (!user) {
-    return <Navigate to="/login" replace />
+  if (!token) {
+    return <Navigate to="/" replace />
   }
 
   return <Outlet />

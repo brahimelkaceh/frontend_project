@@ -1,19 +1,23 @@
+
 import { useState } from 'react'
 import { AuthContext } from './authContext'
 
 export default function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
+  const [token, setToken] = useState(localStorage.getItem('token'))
 
-  function login(userData) {
-    setUser(userData)
+  function login(newToken) {
+    localStorage.setItem('token', newToken)
+    setToken(newToken)
   }
 
   function logout() {
-    setUser(null)
+    localStorage.removeItem('token')
+    setToken(null)
   }
 
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ token, login, logout }}>
       {children}
     </AuthContext.Provider>
   )
