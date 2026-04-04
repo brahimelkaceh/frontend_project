@@ -9,6 +9,10 @@ export const tabSec = [
   { id: 'durable', label: 'Durable' },
 ]
 
+/////////////*/
+
+
+
 export const interventions = [
   { id: 1, dateStart: "28/06/2025 08:00", dateEnd: "07/07/2025 14:00", duration: 9,  titre: "CARNIVIT",   famille: "Vaccins", mode: "Eau de Boisson", dose: 0.5 },
   { id: 2, dateStart: "21/08/2025 08:00", dateEnd: "26/08/2025 21:00", duration: 5,  titre: "CARNIVIT",   famille: "Vaccins", mode: "Eau de Boisson", dose: 0.5 },

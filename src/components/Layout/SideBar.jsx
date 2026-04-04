@@ -31,8 +31,9 @@ const navGroups = [
  
         { label: 'Locations', to: '/locations', icon: <LocationOnIcon fontSize="small" /> },
         { label: 'Add Location', to: '/locations/create', icon: <AddLocationAltIcon fontSize="small" /> },
- { label: 'Intervention', to: '/intervention', icon: <ScienceIcon fontSize="small" /> },
-     // { label: 'Theme Toggle', to: '/themetoogle', icon: <LightModeOutlinedIcon fontSize="small" /> },
+        { label: 'Intervention', to: '/intervention', icon: <ScienceIcon fontSize="small" /> },
+      
+        // { label: 'Theme Toggle', to: '/themetoogle', icon: <LightModeOutlinedIcon fontSize="small" /> },
     ],
   },
 ];
@@ -56,7 +57,6 @@ const SideBar = () => {
         },
       }}
     >
-      {/* Logo */}
       <Box sx={{ px: 2, py: 2.5, borderBottom: '1px solid', borderColor: 'divider' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
           <Box
@@ -72,7 +72,6 @@ const SideBar = () => {
         </Box>
       </Box>
 
-      {/* Nav */}
       <Box sx={{ flex: 1, px: 1, py: 1, overflowY: 'auto' }}>
         {navGroups.map((group, gi) => (
           <Box key={group.label} sx={{ mb: 1 }}>

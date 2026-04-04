@@ -97,7 +97,7 @@ export default function AppLayout() {
     width: '100%',
     minHeight: '0vh',
     overflowY: 'auto',
-    bgcolor: '#f5fdff',
+    bgcolor: '#f3fdff',
   }}
 >
 
