@@ -7,7 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PauseIcon from '@mui/icons-material/Pause';
-const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
+const InterventionActions = ({ id, is_done, is_started, onToggle ,isClicked}) => {
 
 
   
@@ -46,7 +46,7 @@ const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
       {/* static buttons — just disabled when done */}
       <Tooltip title={'Modifier'}>
        
-          <IconButton sx={{ bgcolor: '#fff9c1', color: '#ffcf33', borderRadius: '6px',  }} size="small">
+          <IconButton disabled={is_done} sx={{ bgcolor: '#fff9c1', color: '#ffcf33', borderRadius: '6px',  }} size="small">
             <EditIcon fontSize="small" />
           </IconButton>
        
@@ -54,7 +54,7 @@ const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
 
       <Tooltip title={'Supprimer'}>
        
-          <IconButton sx={{ bgcolor: '#ffe5e5', color: '#ff2d2d', borderRadius: '6px',  }} size="small">
+          <IconButton disabled={is_done}  sx={{ bgcolor: '#ffe5e5', color: '#ff2d2d', borderRadius: '6px',  }} size="small">
             <DeleteIcon fontSize="small" />
           </IconButton>
        
@@ -62,7 +62,7 @@ const InterventionActions = ({ id, is_done, is_started, onToggle }) => {
 
       <Tooltip title={'Détail'}>
        
-          <IconButton sx={{ bgcolor: '#d8f4ff', color: '#4fd6ff', borderRadius: '6px',  }} size="small">
+          <IconButton onClick={isClicked} sx={{ bgcolor: '#d8f4ff', color: '#4fd6ff', borderRadius: '6px',  }} size="small">
             <ArrowForwardIcon fontSize="small" />
           </IconButton>
        

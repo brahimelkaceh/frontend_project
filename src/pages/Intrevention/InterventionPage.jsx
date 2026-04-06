@@ -24,6 +24,18 @@ const InterventionPage = () => {
     () => Object.fromEntries(data.map(i => [i.id, i.is_started]))
   )
 
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [selectedId, setSelectedId] = useState(null)
+
+  const handleViewDetail = (id) => {
+    setSelectedId(id)
+    setDrawerOpen(true)
+  }
+
+
+
+
+
   // ─── logic ───────────────────────────────────────────
   const isPreventif = activeTab === 'supplementations_preventives'
 
@@ -50,7 +62,11 @@ const InterventionPage = () => {
   // ─── render ───────────────────────────────────────────
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-<InterventionDetail/>
+ <InterventionDetail
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        id={selectedId}
+      />
       <InterventionFilters
         lot={lot}
         site={site}
@@ -67,8 +83,8 @@ const InterventionPage = () => {
         rows={filteredData}
         startedStates={startedStates}
         onToggle={handleToggleStarted}
+          onViewDetail={handleViewDetail}
       />
-
     </Box>
   )
 }

@@ -5,12 +5,10 @@ import ConfirmationDialog from '../ConfirmationDialog/ConfirmationDialog'
 import { Box, Typography } from '@mui/material'
 import { useMemo } from 'react'
 
-const InterventionTable = ({ rows, startedStates, onToggle }) => {
-
-
+const InterventionTable = ({ rows, startedStates, onToggle, onViewDetail }) => {
   const columns = useMemo(
-    () => getInterventionColumns(startedStates, onToggle),
-    [startedStates, onToggle]
+    () => getInterventionColumns(startedStates, onToggle, onViewDetail),
+    [startedStates, onToggle, onViewDetail]
   )
 
 
